@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+
+    <h1>Ingresar un alumno</h1>
+
+    <form th:action="@{/form}" th:object="${estudiante}" method="post">
+        <input type="hidden" th:field="*{codigoEstudiante}">
+
+            <label>Nombre del Alumno:</label>
+
+                <input class="form-control" type="text" th:field="*{nombre}">
+
+
+            <span th:errors="*{nombre}" style=color:#FF0000></span><br>
+
+
+            <label>Apellido:</label>
+
+                <input  class="form-control" type="text" th:field="*{apellido}">
+            </div>
+            <span th:errors="*{apellido}" style=color:#FF0000></span><br>
+
+
+            <label>Carne del alumno</label>
+
+                <input  class="form-control" type="text" th:field="*{carne}">
+
+            <span th:errors="*{carne}" style=color:#FF0000></span><br>
+
+
+            <label>Carrera:</label>
+
+                <input  class="form-control" type="text" th:field="*{carrera}">
+
+            <span th:errors="*{carrera}" style=color:#FF0000></span><br>
+
+
+        <input type="submit"  class="btn btn-success" value="Agregar">
+
+
+
+    </form>
+
+    <form  method="post">
+        <label>Id del alumno</label>
+        <div class="col-sm-4">
+            <input  class="form-control" type="text" name="id">
+        </div>
+        <input type="submit"   th:formaction="@{/delete}"  value="Eliminar">
+        <input type="submit"  th:formaction="@{/edit}"  value="Editar" >
+    </form>
+    <a type="button" class="btn btn-success" href="/listado" >Ir a listado</a>
+
+</body>
+</html>
